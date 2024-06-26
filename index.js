@@ -11,7 +11,7 @@ const trancaRoutes = require('./routes/locksRoutes');
 const Tranca = require('./models/Tranca'); // Adicione esta linha para importar o modelo Tranca
 
 // Porta de operação 
-const PORT = 6000;
+const PORT = 3000;
 
 //Passwords 
 const passwd = process.env.password;
