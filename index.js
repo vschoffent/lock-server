@@ -75,6 +75,10 @@ mqttClient.on('connect', () => {
     });
 });
 
+
+app.get("/",function(req,res) {
+    res.send("Olá funcionando!");
+})
 // Inicia o servidor
 app.listen(PORT, () => {
     console.log(`Server started at port ${PORT}`)
