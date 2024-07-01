@@ -80,6 +80,6 @@ app.get("/",function(req,res) {
     res.send("Olá funcionando!");
 })
 // Inicia o servidor
-app.listen(PORT, () => {
+app.listen(PORT || 6000, () => {
     console.log(`Server started at port ${PORT}`)
 });
