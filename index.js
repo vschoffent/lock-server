@@ -81,5 +81,19 @@ app.get("/",function(req,res) {
 })
 // Inicia o servidor
 app.listen(PORT || 6000, () => {
-    console.log(`Server started at port ${PORT}`)
+
+    const os = require('os');
+    const networkInterfaces = os.networkInterfaces();
+    // Obtendo o endereço IP da interface de rede
+    let ipAddress = 'localhost';
+    for (let interfaceName in networkInterfaces) {
+        for (let i = 0; i < networkInterfaces[interfaceName].length; i++) {
+        const iface = networkInterfaces[interfaceName][i];
+        if (iface.family === 'IPv4' && !iface.internal) {
+            ipAddress = iface.address;
+        }
+        }
+    }
+  
+  console.log(`Server is running on http://${ipAddress}:${port}`);
 });
