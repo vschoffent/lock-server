@@ -22,7 +22,7 @@ app.use(express.json()); // Para analisar o corpo da requisição como JSON
 app.use(express.urlencoded({ extended: true })); // Para dados 
 
 // Conectar ao MongoDB
-mongoose.connect(`mongodb+srv://viniciusst:el87CCS0euROFeM9@lockdb.0w8uz0g.mongodb.net/?retryWrites=true&w=majority&appName=lockdb`, {
+mongoose.connect(`mongodb+srv://${process.env.user}:${passwd}@lockdb.0w8uz0g.mongodb.net/?retryWrites=true&w=majority&appName=lockdb`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => console.log('Conectado ao MongoDB')).catch(err => console.error('Erro ao conectar ao MongoDB', err));
@@ -34,8 +34,8 @@ app.use('/locks', trancaRoutes); // Adicione esta linha
 // Configurações do broker MQTT
 const mqttBrokerUrl = 'mqtt://igbt.eesc.usp.br:1883'; // Substitua pelo URL do seu broker
 const mqttClient = mqtt.connect(mqttBrokerUrl, {
-    username: 'mqtt', // Substitua pelo nome de usuário
-    password: 'mqtt_123_abc' // Substitua pela senha
+    username: mqttUser, // Substitua pelo nome de usuário
+    password: mqttPasswd // Substitua pela senha
 });
 
 // Evento quando o cliente MQTT se conecta
