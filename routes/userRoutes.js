@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
 // Procurar todos os usuários
 router.get('/', async (req, res) => {
   const users = await User.find();
-  return res.send({ users });
+  return res.json({ users });
 });
 
 
