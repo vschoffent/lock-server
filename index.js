@@ -95,5 +95,5 @@ app.listen(PORT || 6000, () => {
         }
     }
   
-  console.log(`Server is running on http://${ipAddress}:${port}`);
+  console.log(`Server is running on http://${ipAddress}:${PORT}`);
 });
